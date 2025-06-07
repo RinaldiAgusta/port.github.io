@@ -166,4 +166,52 @@
   <h2>Projects</h2>
   <div class="project-card">
     <h3>Sales Dashboard</h3>
-    <p>Dashboard interaktif untuk analisis data penjualan tahunan menggunakan Tableau
+    <p>Dashboard interaktif untuk analisis data penjualan tahunan menggunakan Tableau.</p>
+  </div>
+  <div class="project-card">
+    <h3>Customer Segmentation</h3>
+    <p>Menggunakan clustering untuk segmentasi pelanggan dan meningkatkan retensi.</p>
+  </div>
+</section>
+
+<section id="contact" class="section">
+  <h2>Contact</h2>
+  <p>Email: data.analyst@example.com</p>
+  <p>LinkedIn: <a href="#" target="_blank">Profil LinkedIn</a></p>
+</section>
+
+<footer>
+  <p>&copy; 2025 Data Analyst Portfolio</p>
+</footer>
+
+<script>
+  // Smooth scroll for nav links
+  document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const targetId = link.getAttribute('href').substring(1);
+      const target = document.getElementById(targetId);
+      target.scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+
+  // Reveal animation
+  const sections = document.querySelectorAll('.section');
+  const revealSection = () => {
+    const triggerBottom = window.innerHeight * 0.85;
+    sections.forEach(section => {
+      const sectionTop = section.getBoundingClientRect().top;
+      if (sectionTop < triggerBottom) {
+        section.classList.add('show');
+      } else {
+        section.classList.remove('show');
+      }
+    });
+  };
+  window.addEventListener('scroll', revealSection);
+  revealSection();
+</script>
+</body>
+</html>
