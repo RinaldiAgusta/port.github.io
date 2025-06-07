@@ -3,215 +3,233 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Portfolio Data Analyst</title>
+<title>Portofolio Data Analyst</title>
 <style>
-  :root {
-    --primary-color: #0ff;
-    --bg-color: #000;
-    --text-color: #fff;
-    --card-bg: #111;
-  }
-
+  /* Reset default styles */
   * {
-    box-sizing: border-box;
-    scroll-behavior: smooth;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
   }
 
   body {
-    font-family: 'Helvetica Neue', sans-serif;
-    background: var(--bg-color);
-    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
     line-height: 1.6;
+    background: #f0f2f5;
   }
 
   header {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+      url('https://source.unsplash.com/1600x900/?data') center/cover no-repeat;
+    color: #fff;
+    padding: 2rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 3rem;
-    background: rgba(0, 0, 0, 0.9);
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    border-bottom: 1px solid #222;
   }
 
-  header h1 {
+  .logo {
     font-size: 1.5rem;
-    letter-spacing: 2px;
+    font-weight: bold;
   }
 
   nav ul {
-    display: flex;
     list-style: none;
-    gap: 1.5rem;
+    display: flex;
+    gap: 1rem;
   }
 
   nav a {
+    color: #fff;
     text-decoration: none;
-    color: var(--text-color);
-    font-weight: bold;
-    transition: color 0.3s ease;
+    font-weight: 500;
   }
 
-  nav a:hover {
-    color: var(--primary-color);
+  .hero {
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    animation: fadeIn 2s ease-in-out;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .highlight {
+    color: #00bcd4;
+  }
+
+  .btn {
+    display: inline-block;
+    background: #00bcd4;
+    color: #fff;
+    padding: 0.7rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s;
+  }
+
+  .btn:hover {
+    background: #0097a7;
   }
 
   section {
-    padding: 4rem 3rem;
-    max-width: 1000px;
-    margin: auto;
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.6s ease;
+    padding: 4rem 2rem;
   }
 
-  section.show {
-    opacity: 1;
-    transform: translateY(0);
+  .about, .projects, .contact {
+    background: #fff;
+    margin: 1rem 0;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   }
 
-  section h2 {
+  .about h2, .projects h2, .contact h2 {
     margin-bottom: 1rem;
-    font-size: 2rem;
-    color: var(--primary-color);
-    border-bottom: 2px solid var(--primary-color);
-    display: inline-block;
+    color: #00bcd4;
   }
 
-  .skills-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1rem;
-    margin-top: 1rem;
-  }
-
-  .skills-list li {
-    background: var(--card-bg);
-    padding: 0.75rem;
+  .about p {
+    max-width: 600px;
+    margin: auto;
     text-align: center;
-    border-radius: 6px;
   }
 
-  .project-card {
-    background: var(--card-bg);
+  .project-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+
+  .project {
+    background: #e1f5fe;
     padding: 1rem;
-    border-radius: 6px;
-    margin-top: 1rem;
-    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 5px;
+    transition: transform 0.3s;
   }
 
-  .project-card:hover {
+  .project:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 255, 255, 0.2);
+  }
+
+  .contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 500px;
+    margin: auto;
+  }
+
+  .contact input, .contact textarea {
+    padding: 0.7rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
   }
 
   footer {
     text-align: center;
     padding: 1rem;
-    background: #111;
+    background: #00bcd4;
+    color: #fff;
     margin-top: 2rem;
-    font-size: 0.9rem;
   }
 
-  a {
-    color: var(--primary-color);
-    text-decoration: none;
-  }
-
-  a:hover {
-    text-decoration: underline;
-  }
-
-  /* Animasi fade in up */
-  @keyframes fadeInUp {
-    0% {opacity: 0; transform: translateY(50px);}
-    100% {opacity: 1; transform: translateY(0);}
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 </style>
 </head>
 <body>
+
 <header>
-  <h1>Data Analyst</h1>
   <nav>
+    <div class="logo">MyPortofolio</div>
     <ul>
       <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
+  <div class="hero">
+    <h1>Hi, I'm <span class="highlight">[Your Name]</span></h1>
+    <p>Data Analyst - Uncovering Insights from Data</p>
+    <a href="#projects" class="btn">View Projects</a>
+  </div>
 </header>
 
-<section id="about" class="section">
+<section id="about" class="about">
   <h2>About Me</h2>
-  <p>Saya seorang Data Analyst dengan pengalaman lebih dari 5 tahun. Keahlian saya meliputi analisis data, visualisasi, dan membantu pengambilan keputusan berbasis data untuk perusahaan.</p>
+  <p>
+    I'm a passionate data analyst skilled in data visualization, data cleaning, and data-driven decision making. Let's connect and explore the power of data together!
+  </p>
 </section>
 
-<section id="skills" class="section">
-  <h2>Skills</h2>
-  <ul class="skills-list">
-    <li>SQL & Database</li>
-    <li>Python & Pandas</li>
-    <li>Tableau & Power BI</li>
-    <li>Data Visualization</li>
-    <li>Business Intelligence</li>
-  </ul>
-</section>
-
-<section id="projects" class="section">
+<section id="projects" class="projects">
   <h2>Projects</h2>
-  <div class="project-card">
-    <h3>Sales Dashboard</h3>
-    <p>Dashboard interaktif untuk analisis data penjualan tahunan menggunakan Tableau.</p>
-  </div>
-  <div class="project-card">
-    <h3>Customer Segmentation</h3>
-    <p>Menggunakan clustering untuk segmentasi pelanggan dan meningkatkan retensi.</p>
+  <div class="project-list">
+    <div class="project">
+      <h3>Sales Dashboard</h3>
+      <p>Interactive dashboard for sales data using Power BI and SQL.</p>
+    </div>
+    <div class="project">
+      <h3>Customer Segmentation</h3>
+      <p>Segmentation analysis using Python and clustering algorithms.</p>
+    </div>
+    <div class="project">
+      <h3>Marketing Analytics</h3>
+      <p>Analyzing marketing campaigns with Tableau and R.</p>
+    </div>
   </div>
 </section>
 
-<section id="contact" class="section">
+<section id="contact" class="contact">
   <h2>Contact</h2>
-  <p>Email: data.analyst@example.com</p>
-  <p>LinkedIn: <a href="#" target="_blank">Profil LinkedIn</a></p>
+  <form>
+    <input type="text" placeholder="Your Name" required />
+    <input type="email" placeholder="Your Email" required />
+    <textarea placeholder="Your Message"></textarea>
+    <button type="submit" class="btn">Send Message</button>
+  </form>
 </section>
 
 <footer>
-  <p>&copy; 2025 Data Analyst Portfolio</p>
+  <p>&copy; 2025 [Your Name]. All rights reserved.</p>
 </footer>
 
 <script>
-  // Smooth scroll for nav links
+  // Smooth scroll for anchor links
   document.querySelectorAll('nav a').forEach(link => {
-    link.addEventListener('click', e => {
+    link.addEventListener('click', function(e) {
       e.preventDefault();
-      const targetId = link.getAttribute('href').substring(1);
-      const target = document.getElementById(targetId);
+      const target = document.querySelector(this.getAttribute('href'));
       target.scrollIntoView({
         behavior: 'smooth'
       });
     });
   });
 
-  // Reveal animation
-  const sections = document.querySelectorAll('.section');
-  const revealSection = () => {
-    const triggerBottom = window.innerHeight * 0.85;
-    sections.forEach(section => {
-      const sectionTop = section.getBoundingClientRect().top;
-      if (sectionTop < triggerBottom) {
-        section.classList.add('show');
-      } else {
-        section.classList.remove('show');
-      }
-    });
-  };
-  window.addEventListener('scroll', revealSection);
-  revealSection();
+  // Optional: Show a thank you alert on form submit
+  document.querySelector('.contact form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Thank you for reaching out!');
+    this.reset();
+  });
 </script>
 </body>
 </html>
