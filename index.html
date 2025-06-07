@@ -16,6 +16,51 @@
     background: #f0f2f5;
   }
 
+.skills {
+  background: #fff;
+  padding: 4rem 2rem;
+  margin: 1rem 0;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.skills h2 {
+  color: #00bcd4;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.skill {
+  margin-bottom: 1rem;
+}
+
+.skill span {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.bar {
+  width: 100%;
+  background: #e0e0e0;
+  height: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  background: #00bcd4;
+  width: 0;
+  border-radius: 10px;
+  animation: fillBar 2s forwards;
+}
+
+@keyframes fillBar {
+  from { width: 0; }
+  to { width: 100%; }
+}
+  
   * {
     box-sizing: inherit;
   }
@@ -181,6 +226,26 @@
   </p>
 </section>
 
+  <section id="skills" class="skills">
+  <h2>Skills</h2>
+  <div class="skill">
+    <span>SQL</span>
+    <div class="bar"><div class="fill" style="width: 90%"></div></div>
+  </div>
+  <div class="skill">
+    <span>Python</span>
+    <div class="bar"><div class="fill" style="width: 85%"></div></div>
+  </div>
+  <div class="skill">
+    <span>Power BI</span>
+    <div class="bar"><div class="fill" style="width: 80%"></div></div>
+  </div>
+  <div class="skill">
+    <span>Excel</span>
+    <div class="bar"><div class="fill" style="width: 95%"></div></div>
+  </div>
+</section>
+  
 <section id="projects" class="projects">
   <h2>Projects</h2>
   <div class="project-list">
