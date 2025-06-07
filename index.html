@@ -3,113 +3,111 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Data Analyst Portfolio</title>
+  <title>Portfolio Data Analyst</title>
   <style>
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
     }
 
     body {
-      line-height: 1.6;
-      color: #333;
-      background-color: #f9f9f9;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
     }
 
     header {
-      background-color: #005f73;
-      color: #fff;
+      background: #111;
       padding: 1rem 2rem;
-      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
 
     header h1 {
-      margin-bottom: 0.5rem;
+      font-size: 1.5rem;
     }
 
     nav ul {
       display: flex;
-      justify-content: center;
-      gap: 1rem;
       list-style: none;
+      gap: 1rem;
     }
 
     nav a {
-      color: #fff;
       text-decoration: none;
+      color: #fff;
+      transition: color 0.3s ease;
     }
 
     nav a:hover {
-      text-decoration: underline;
+      color: #0ff;
     }
 
-    section {
-      padding: 2rem;
-      max-width: 800px;
-      margin: auto;
+    .section {
+      padding: 4rem 2rem;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.6s ease;
     }
 
-    h2 {
+    .section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section h2 {
       margin-bottom: 1rem;
-      color: #005f73;
+      color: #0ff;
     }
 
     .skills-list {
-      list-style: disc inside;
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+    }
+
+    .skills-list li {
+      background: #111;
+      padding: 0.5rem;
+      border-radius: 4px;
+      text-align: center;
     }
 
     .project-card {
-      background-color: #fff;
+      background: #111;
       padding: 1rem;
-      margin-bottom: 1rem;
       border-radius: 8px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      margin-bottom: 1rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    form {
-      display: flex;
-      flex-direction: column;
-    }
-
-    label {
-      margin-top: 0.5rem;
-    }
-
-    input, textarea {
-      padding: 0.5rem;
-      margin-top: 0.2rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-
-    button {
-      margin-top: 1rem;
-      padding: 0.7rem;
-      background-color: #005f73;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #0a9396;
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
     }
 
     footer {
       text-align: center;
       padding: 1rem;
-      background-color: #005f73;
-      color: #fff;
+      background: #111;
       margin-top: 2rem;
+    }
+
+    a {
+      color: #0ff;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>My Portfolio</h1>
+    <h1>Data Analyst</h1>
     <nav>
       <ul>
         <li><a href="#about">About</a></li>
@@ -120,68 +118,73 @@
     </nav>
   </header>
 
-  <section id="about">
+  <section id="about" class="section">
     <h2>About Me</h2>
-    <p>Hello! I'm a Data Analyst passionate about transforming data into actionable insights. I have experience in data cleaning, visualization, and statistical analysis using tools like Python, SQL, and Tableau.</p>
+    <p>Saya seorang Data Analyst dengan pengalaman lebih dari 5 tahun. Saya ahli dalam menganalisis data, visualisasi, dan membantu pengambilan keputusan berbasis data.</p>
   </section>
 
-  <section id="skills">
+  <section id="skills" class="section">
     <h2>Skills</h2>
     <ul class="skills-list">
-      <li>Python (Pandas, NumPy, Matplotlib)</li>
-      <li>SQL</li>
-      <li>Data Visualization (Tableau, Power BI)</li>
-      <li>Machine Learning Basics</li>
-      <li>Statistical Analysis</li>
+      <li>SQL & Database</li>
+      <li>Python & Pandas</li>
+      <li>Tableau & Power BI</li>
+      <li>Data Visualization</li>
+      <li>Business Intelligence</li>
     </ul>
   </section>
 
-  <section id="projects">
+  <section id="projects" class="section">
     <h2>Projects</h2>
     <div class="project-card">
       <h3>Sales Dashboard</h3>
-      <p>Created an interactive sales dashboard in Tableau to track KPIs and drive business decisions.</p>
+      <p>Membuat dashboard interaktif untuk menganalisis data penjualan tahunan menggunakan Tableau.</p>
     </div>
     <div class="project-card">
       <h3>Customer Segmentation</h3>
-      <p>Performed customer segmentation using clustering techniques in Python to target marketing efforts.</p>
+      <p>Menggunakan clustering untuk segmentasi pelanggan dan meningkatkan retensi.</p>
     </div>
   </section>
 
-  <section id="contact">
+  <section id="contact" class="section">
     <h2>Contact</h2>
-    <form id="contact-form">
-      <label for="name">Name</label>
-      <input type="text" id="name" required />
-
-      <label for="email">Email</label>
-      <input type="email" id="email" required />
-
-      <label for="message">Message</label>
-      <textarea id="message" required></textarea>
-
-      <button type="submit">Send</button>
-    </form>
+    <p>Email: data.analyst@example.com</p>
+    <p>LinkedIn: <a href="#" target="_blank">Profil LinkedIn</a></p>
   </section>
 
   <footer>
-    <p>&copy; 2025 Your Name</p>
+    <p>&copy; 2025 Data Analyst Portfolio</p>
   </footer>
 
   <script>
-    document.getElementById("contact-form").addEventListener("submit", function(e) {
-      e.preventDefault();
-      const name = document.getElementById("name").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const message = document.getElementById("message").value.trim();
-
-      if (name && email && message) {
-        alert(\`Thank you for reaching out, \${name}! I will get back to you soon.\`);
-        document.getElementById("contact-form").reset();
-      } else {
-        alert("Please fill out all fields before submitting.");
-      }
+    // Smooth scroll effect for nav links
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').substring(1);
+        const target = document.getElementById(targetId);
+        target.scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
     });
+
+    // Scroll reveal animation
+    const sections = document.querySelectorAll('.section');
+    const revealSection = () => {
+      const triggerBottom = window.innerHeight * 0.85;
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if (sectionTop < triggerBottom) {
+          section.classList.add('show');
+        } else {
+          section.classList.remove('show');
+        }
+      });
+    };
+    window.addEventListener('scroll', revealSection);
+    // Initial reveal
+    revealSection();
   </script>
 </body>
 </html>
