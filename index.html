@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Portofolio Data Analyst</title>
@@ -16,44 +17,79 @@
     background: #f0f2f5;
   }
 
-.skills {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 40px 0;
-  }
+.skills-section {
+  padding: 50px 20px;
+  background: #f7f7fb;
+  text-align: center;
+}
 
-  .skills h2 {
-    text-align: center;
-    color: #00bcd4;
-    font-size: 28px;
-    margin-bottom: 30px;
-  }
+.skills-title {
+  font-size: 36px;
+  font-weight: bold;
+}
 
-  .skill {
-    margin-bottom: 20px;
-  }
+.skills-subtitle {
+  font-size: 16px;
+  color: #888;
+  margin-bottom: 40px;
+}
 
-  .skill-name {
-    display: flex;
-    justify-content: space-between;
-    font-size: 18px;
-    margin-bottom: 6px;
-  }
+.skills-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 60px;
+  text-align: left;
+}
 
-  .skill-bar {
-    background-color: #e0e0e0;
-    height: 20px;
-    border-radius: 10px;
-    overflow: hidden;
-  }
+.skill-column {
+  width: 300px;
+}
 
-  .skill-bar-fill {
-    height: 100%;
-    background-color: #00bcd4;
-    width: 0;
-    border-radius: 10px;
-    transition: width 1s ease-in-out;
-  }
+.skill-column h3 {
+  font-size: 20px;
+  margin-bottom: 5px;
+  color: #222;
+}
+
+.skill-column i {
+  color: #6666ff;
+  margin-right: 10px;
+}
+
+.desc {
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 20px;
+}
+
+.skill-bar {
+  margin-bottom: 20px;
+}
+
+.skill-bar span {
+  display: inline-block;
+  width: 70%;
+  font-weight: 500;
+}
+
+.skill-bar .percent {
+  float: right;
+  font-weight: 500;
+}
+
+.bar {
+  height: 6px;
+  background: #d8d8f0;
+  border-radius: 10px;
+  margin-top: 5px;
+}
+
+.fill {
+  height: 100%;
+  background: #6666ff;
+  border-radius: 10px;
+}
   
   * {
     box-sizing: inherit;
@@ -220,26 +256,75 @@
   </p>
 </section>
 
-<section id="skills-programming" style="padding: 40px 0;">
-  <h2 style="text-align: center; color: #00bcd4;">Skills & Programming</h2>
-  
-  <div class="skills-container">
-    <!-- Bagian Skills -->
-    <div class="skills-column">
-      <h3>Skills</h3>
-      <div class="skill"><span>SQL <span style="float:right;">90%</span></span><div class="bar"><div class="fill" style="width: 90%;"></div></div></div>
-      <div class="skill"><span>Python <span style="float:right;">85%</span></span><div class="bar"><div class="fill" style="width: 85%;"></div></div></div>
-      <div class="skill"><span>Excel <span style="float:right;">80%</span></span><div class="bar"><div class="fill" style="width: 80%;"></div></div></div>
-      <div class="skill"><span>Looker Studio <span style="float:right;">90%</span></span><div class="bar"><div class="fill" style="width: 90%;"></div></div></div>
-      <div class="skill"><span>Tableau <span style="float:right;">85%</span></span><div class="bar"><div class="fill" style="width: 85%;"></div></div></div>
-      <div class="skill"><span>Power BI <span style="float:right;">80%</span></span><div class="bar"><div class="fill" style="width: 80%;"></div></div></div>
+<section id="skills" class="skills-section">
+  <h2 class="skills-title">Skills</h2>
+  <p class="skills-subtitle">This is a little bit of my Technical Skills</p>
+
+  <div class="skills-grid">
+    <!-- Programming Column -->
+    <div class="skill-column">
+      <h3><i class="fas fa-code"></i> Programming</h3>
+      <p class="desc">Programming that I have picked up so far</p>
+
+      <div class="skill-bar">
+        <span>Python</span>
+        <span class="percent">90%</span>
+        <div class="bar"><div class="fill" style="width: 90%;"></div></div>
+      </div>
+
+      <div class="skill-bar">
+        <span>SQL</span>
+        <span class="percent">85%</span>
+        <div class="bar"><div class="fill" style="width: 85%;"></div></div>
+      </div>
+
+      <div class="skill-bar">
+        <span>Machine Learning</span>
+        <span class="percent">80%</span>
+        <div class="bar"><div class="fill" style="width: 80%;"></div></div>
+      </div>
+
+      <div class="skill-bar">
+        <span>Deep Learning</span>
+        <span class="percent">75%</span>
+        <div class="bar"><div class="fill" style="width: 75%;"></div></div>
+      </div>
     </div>
 
-    <!-- Bagian Programming -->
-    <div class="skills-column">
-      <h3>Programming</h3>
-      <div class="skill"><span>Deep Learning <span style="float:right;">70%</span></span><div class="bar"><div class="fill" style="width: 70%;"></div></div></div>
-      <div class="skill"><span>Machine Learning <span style="float:right;">80%</span></span><div class="bar"><div class="fill" style="width: 80%;"></div></div></div>
+    <!-- Tools Column -->
+    <div class="skill-column">
+      <h3><i class="fas fa-tools"></i> Tools</h3>
+      <p class="desc">Tools that I know and use on a daily basis</p>
+
+      <div class="skill-bar">
+        <span>Looker Studio</span>
+        <span class="percent">90%</span>
+        <div class="bar"><div class="fill" style="width: 90%;"></div></div>
+      </div>
+
+      <div class="skill-bar">
+        <span>Tableau</span>
+        <span class="percent">85%</span>
+        <div class="bar"><div class="fill" style="width: 85%;"></div></div>
+      </div>
+
+      <div class="skill-bar">
+        <span>Github</span>
+        <span class="percent">75%</span>
+        <div class="bar"><div class="fill" style="width: 75%;"></div></div>
+      </div>
+
+      <div class="skill-bar">
+        <span>BigQuery</span>
+        <span class="percent">80%</span>
+        <div class="bar"><div class="fill" style="width: 80%;"></div></div>
+      </div>
+
+      <div class="skill-bar">
+        <span>VSCode</span>
+        <span class="percent">85%</span>
+        <div class="bar"><div class="fill" style="width: 85%;"></div></div>
+      </div>
     </div>
   </div>
 </section>
