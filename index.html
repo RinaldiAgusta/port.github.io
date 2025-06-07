@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Analyst Portfolio</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      line-height: 1.6;
+      color: #333;
+      background-color: #f9f9f9;
+    }
+
+    header {
+      background-color: #005f73;
+      color: #fff;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin-bottom: 0.5rem;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      list-style: none;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+      color: #005f73;
+    }
+
+    .skills-list {
+      list-style: disc inside;
+    }
+
+    .project-card {
+      background-color: #fff;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-top: 0.5rem;
+    }
+
+    input, textarea {
+      padding: 0.5rem;
+      margin-top: 0.2rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      margin-top: 1rem;
+      padding: 0.7rem;
+      background-color: #005f73;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0a9396;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #005f73;
+      color: #fff;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>My Portfolio</h1>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Hello! I'm a Data Analyst passionate about transforming data into actionable insights. I have experience in data cleaning, visualization, and statistical analysis using tools like Python, SQL, and Tableau.</p>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul class="skills-list">
+      <li>Python (Pandas, NumPy, Matplotlib)</li>
+      <li>SQL</li>
+      <li>Data Visualization (Tableau, Power BI)</li>
+      <li>Machine Learning Basics</li>
+      <li>Statistical Analysis</li>
+    </ul>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project-card">
+      <h3>Sales Dashboard</h3>
+      <p>Created an interactive sales dashboard in Tableau to track KPIs and drive business decisions.</p>
+    </div>
+    <div class="project-card">
+      <h3>Customer Segmentation</h3>
+      <p>Performed customer segmentation using clustering techniques in Python to target marketing efforts.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <form id="contact-form">
+      <label for="name">Name</label>
+      <input type="text" id="name" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" required />
+
+      <label for="message">Message</label>
+      <textarea id="message" required></textarea>
+
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Your Name</p>
+  </footer>
+
+  <script>
+    document.getElementById("contact-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      if (name && email && message) {
+        alert(\`Thank you for reaching out, \${name}! I will get back to you soon.\`);
+        document.getElementById("contact-form").reset();
+      } else {
+        alert("Please fill out all fields before submitting.");
+      }
+    });
+  </script>
+</body>
+</html>
