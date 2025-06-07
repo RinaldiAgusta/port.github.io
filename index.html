@@ -34,16 +34,34 @@
 
     nav {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: space-between; /* Logo di kiri, menu di kanan */
+  align-items: center;            /* Pusatkan secara vertikal */
+  padding: 10px 40px;
   background-color: #555;
-  padding: 8px 30px;  /* <== kurangi padding atas-bawah */
 }
 
-    .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
+nav .logo {
+  font-weight: bold;
+  font-size: 24px;
+  color: white;
+}
+
+nav .menu {
+  display: flex;
+  gap: 30px; /* Jarak antar menu */
+}
+
+    nav .menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+   nav .logo {
+  font-weight: bold;
+  font-size: 24px;
+  color: white;
+}
 
     nav ul {
       list-style: none;
@@ -291,14 +309,14 @@
 <body>
   <header>
     <nav>
-      <div class="logo">MyPortofolio</div>
-      <div class="menu-toggle"><i class="fas fa-bars"></i></div>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+  <div class="logo">MyPortofolio</div>
+  <div class="menu">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+    
     <div class="hero">
       <h1>Hi, I'm <span class="highlight">[Your Name]</span></h1>
       <p>Data Analyst - Uncovering Insights from Data</p>
