@@ -11,14 +11,13 @@
       margin: 0;
       padding: 0;
       height: 100%;
-      box-sizing: border-box;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: #f0f2f5;
       color: #333;
     }
 
     * {
-      box-sizing: inherit;
+      box-sizing: border-box;
     }
 
     header {
@@ -28,65 +27,47 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      margin: 0;
-      padding: 0;
     }
 
     nav {
-  display: flex;
-  justify-content: space-between; /* Logo di kiri, menu di kanan */
-  align-items: center;            /* Pusatkan secara vertikal */
-  padding: 10px 40px;
-  background-color: #555;
-}
-
-nav .logo {
-  font-weight: bold;
-  font-size: 24px;
-  color: white;
-}
-
-nav .menu {
-  display: flex;
-  gap: 30px; /* Jarak antar menu */
-}
-
-    nav .menu a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-   nav .logo {
-  font-weight: bold;
-  font-size: 24px;
-  color: white;
-}
-
-    nav ul {
-      list-style: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
       display: flex;
-      gap: 1rem;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      background-color: rgba(0,0,0,0.7);
+      backdrop-filter: blur(10px);
     }
 
-   nav a {
-  color: white;
-  text-decoration: none;
-  margin-left: 20px;
-  font-weight: bold;
-  line-height: 1; /* pastikan tidak tinggi */
-}
+    nav .logo {
+      font-weight: bold;
+      font-size: 24px;
+      color: white;
+    }
 
-    .menu-toggle {
-      display: none;
-      cursor: pointer;
-      font-size: 1.5rem;
-      color: #fff;
+    nav .menu {
+      display: flex;
+      gap: 30px;
+    }
+
+    nav .menu a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav .menu a:hover {
+      color: #00bcd4;
     }
 
     .hero {
       text-align: center;
-      margin-top: 2rem;
+      margin-top: 4rem;
     }
 
     .hero h1 {
@@ -122,34 +103,28 @@ nav .menu {
       padding: 4rem 2rem;
     }
 
-   .about, .projects, .contact {
-  background: #fff;
-  margin: 1rem auto;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  max-width: 900px;
-  padding: 2rem;
-  text-align: center;
-}
+    .about, .projects, .contact {
+      background: #fff;
+      margin: 1rem auto;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      max-width: 900px;
+      padding: 2rem;
+      text-align: center;
+    }
 
-.about h2, .projects h2, .contact h2 {
-  margin-bottom: 1rem;
-  color: #00bcd4;
-  text-align: center;
-}
+    .about h2, .projects h2, .contact h2 {
+      margin-bottom: 1rem;
+      color: #00bcd4;
+    }
 
-.about p, .contact p {
-  max-width: 700px;
-  margin: 0 auto;
-  text-align: center;
-}
+    .project-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
 
-.project-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-  margin-top: 1rem;
-}
     .project {
       background: #e1f5fe;
       padding: 1rem;
@@ -258,6 +233,28 @@ nav .menu {
     }
 
     @media (max-width: 768px) {
+      nav .menu {
+        display: none;
+        flex-direction: column;
+        background-color: rgba(0,0,0,0.85);
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        padding: 1rem;
+      }
+
+      nav .menu.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+        color: #fff;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+
       .skills-grid {
         flex-direction: column;
         align-items: center;
@@ -267,56 +264,21 @@ nav .menu {
         width: 100%;
         max-width: 90%;
       }
-
-      nav ul {
-        flex-direction: column;
-        background-color: rgba(0,0,0,0.85);
-        position: absolute;
-        top: 70px;
-        right: 0;
-        width: 200px;
-        padding: 1rem;
-        display: none;
-      }
-
-      nav ul.active {
-        display: flex;
-      }
-
-      .menu-toggle {
-        display: block;
-      }
-
-      .hero h1 {
-        font-size: 2rem;
-      }
-
-      .hero p {
-        font-size: 1rem;
-      }
-
-      .skills-title {
-        font-size: 28px;
-      }
-
-      .skills-subtitle {
-        font-size: 14px;
-      }
     }
   </style>
 </head>
-
 <body>
+
   <header>
     <nav>
-  <div class="logo">MyPortofolio</div>
-  <div class="menu">
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </div>
-</nav>
-    
+      <div class="logo">MyPortofolio</div>
+      <div class="menu">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+
     <div class="hero">
       <h1>Hi, I'm <span class="highlight">[Your Name]</span></h1>
       <p>Data Analyst - Uncovering Insights from Data</p>
@@ -325,70 +287,41 @@ nav .menu {
   </header>
 
   <section id="about" class="about">
-  <h2>About Me</h2>
-  <p>
-    I'm a passionate data analyst skilled in data visualization, data cleaning, and data-driven decision making. Let's connect and explore the power of data together!
-  </p>
-  <div style="text-align: center; margin-top: 1rem;">
-    <a href="https://drive.google.com/file/d/1azUawVPwnUBw60RKs3Z0a9PSkqtHRPqG/view?usp=sharing" target="_blank" class="btn">
-      View My Resume
-    </a>
-  </div>
-</section>
+    <h2>About Me</h2>
+    <p>
+      I'm a passionate data analyst skilled in data visualization, data cleaning, and data-driven decision making. Let's connect and explore the power of data together!
+    </p>
+    <div style="margin-top: 1rem;">
+      <a href="https://drive.google.com/file/d/1azUawVPwnUBw60RKs3Z0a9PSkqtHRPqG/view?usp=sharing" target="_blank" class="btn">
+        View My Resume
+      </a>
+    </div>
+  </section>
 
   <section id="skills" class="skills-section">
     <h2 class="skills-title">Skills</h2>
     <p class="skills-subtitle">This is a little bit of my Technical Skills</p>
 
     <div class="skills-grid">
-      <!-- Programming Column -->
       <div class="skill-column">
         <h3><i class="fas fa-code"></i> Programming</h3>
         <p class="desc">Programming that I have picked up so far</p>
 
-        <div class="skill-bar">
-          <div class="skill-label"><span>Python</span><span>90%</span></div>
-          <div class="bar"><div class="fill" style="width: 90%;"></div></div>
-        </div>
-        <div class="skill-bar">
-          <div class="skill-label"><span>SQL</span><span>85%</span></div>
-          <div class="bar"><div class="fill" style="width: 85%;"></div></div>
-        </div>
-        <div class="skill-bar">
-          <div class="skill-label"><span>Machine Learning</span><span>80%</span></div>
-          <div class="bar"><div class="fill" style="width: 80%;"></div></div>
-        </div>
-        <div class="skill-bar">
-          <div class="skill-label"><span>Deep Learning</span><span>75%</span></div>
-          <div class="bar"><div class="fill" style="width: 75%;"></div></div>
-        </div>
+        <div class="skill-bar"><div class="skill-label"><span>Python</span><span>90%</span></div><div class="bar"><div class="fill" style="width: 90%;"></div></div></div>
+        <div class="skill-bar"><div class="skill-label"><span>SQL</span><span>85%</span></div><div class="bar"><div class="fill" style="width: 85%;"></div></div></div>
+        <div class="skill-bar"><div class="skill-label"><span>Machine Learning</span><span>80%</span></div><div class="bar"><div class="fill" style="width: 80%;"></div></div></div>
+        <div class="skill-bar"><div class="skill-label"><span>Deep Learning</span><span>75%</span></div><div class="bar"><div class="fill" style="width: 75%;"></div></div></div>
       </div>
 
-      <!-- Tools Column -->
       <div class="skill-column">
         <h3><i class="fas fa-tools"></i> Tools</h3>
         <p class="desc">Tools that I know and use on a daily basis</p>
 
-        <div class="skill-bar">
-          <div class="skill-label"><span>Looker Studio</span><span>90%</span></div>
-          <div class="bar"><div class="fill" style="width: 90%;"></div></div>
-        </div>
-        <div class="skill-bar">
-          <div class="skill-label"><span>Tableau</span><span>85%</span></div>
-          <div class="bar"><div class="fill" style="width: 85%;"></div></div>
-        </div>
-        <div class="skill-bar">
-          <div class="skill-label"><span>Github</span><span>75%</span></div>
-          <div class="bar"><div class="fill" style="width: 75%;"></div></div>
-        </div>
-        <div class="skill-bar">
-          <div class="skill-label"><span>BigQuery</span><span>80%</span></div>
-          <div class="bar"><div class="fill" style="width: 80%;"></div></div>
-        </div>
-        <div class="skill-bar">
-          <div class="skill-label"><span>VSCode</span><span>85%</span></div>
-          <div class="bar"><div class="fill" style="width: 85%;"></div></div>
-        </div>
+        <div class="skill-bar"><div class="skill-label"><span>Looker Studio</span><span>90%</span></div><div class="bar"><div class="fill" style="width: 90%;"></div></div></div>
+        <div class="skill-bar"><div class="skill-label"><span>Tableau</span><span>85%</span></div><div class="bar"><div class="fill" style="width: 85%;"></div></div></div>
+        <div class="skill-bar"><div class="skill-label"><span>Github</span><span>75%</span></div><div class="bar"><div class="fill" style="width: 75%;"></div></div></div>
+        <div class="skill-bar"><div class="skill-label"><span>BigQuery</span><span>80%</span></div><div class="bar"><div class="fill" style="width: 80%;"></div></div></div>
+        <div class="skill-bar"><div class="skill-label"><span>VSCode</span><span>85%</span></div><div class="bar"><div class="fill" style="width: 85%;"></div></div></div>
       </div>
     </div>
   </section>
@@ -412,43 +345,21 @@ nav .menu {
   </section>
 
   <section id="contact" class="contact">
-  <h2>Contact</h2>
-  <div style="text-align: center; font-size: 18px; line-height: 2;">
-    <p><strong>📞 Telp:</strong> 08952</p>
-    <p><strong>📧 Email:</strong> <a href="mailto:rinaldi@gmail.com">rinaldi@gmail.com</a></p>
-    <p><strong>🔗 LinkedIn:</strong> 
-      <a href="https://www.linkedin.com/in/rinaldi-agusta-074620188/edit/forms/contact-info/new/?_l=en_US" target="_blank">
-        linkedin.com/in/rinaldi-agusta
-      </a>
-    </p>
-  </div>
-</section>
+    <h2>Contact</h2>
+    <div style="text-align: center; font-size: 18px; line-height: 2;">
+      <p><strong>📞 Telp:</strong> 08952</p>
+      <p><strong>📧 Email:</strong> <a href="mailto:rinaldi@gmail.com">rinaldi@gmail.com</a></p>
+      <p><strong>🔗 LinkedIn:</strong> 
+        <a href="https://www.linkedin.com/in/rinaldi-agusta-074620188/" target="_blank">
+          linkedin.com/in/rinaldi-agusta
+        </a>
+      </p>
+    </div>
+  </section>
 
   <footer>
     <p>&copy; 2025 [Your Name]. All rights reserved.</p>
   </footer>
 
-  <script>
-    // Smooth scroll
-    document.querySelectorAll('nav a').forEach(link => {
-      link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        target.scrollIntoView({ behavior: 'smooth' });
-      });
-    });
-
-    // Form alert
-    document.querySelector('.contact form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      alert('Thank you for reaching out!');
-      this.reset();
-    });
-
-    // Toggle menu
-    document.querySelector('.menu-toggle').addEventListener('click', function () {
-      document.querySelector('nav ul').classList.toggle('active');
-    });
-  </script>
 </body>
 </html>
