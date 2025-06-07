@@ -5,34 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Portofolio Data Analyst</title>
 <style>
-  /* Reset default styles */
-  * 
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
-  
-  {
+  /* Reset default styles & fix spacing issue */
+  html, body {
     margin: 0;
     padding: 0;
+    height: 100%;
     box-sizing: border-box;
-  }
-
-
-  
-  body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #333;
-    line-height: 1.6;
     background: #f0f2f5;
+  }
+
+  * {
+    box-sizing: inherit;
   }
 
   header {
     background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
       url('https://source.unsplash.com/1600x900/?data') center/cover no-repeat;
     color: #fff;
-    padding: 2rem;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -43,6 +34,7 @@ html, body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 1rem 2rem;
   }
 
   .logo {
