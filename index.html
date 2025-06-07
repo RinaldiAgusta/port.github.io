@@ -1,190 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio Data Analyst</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Portfolio Data Analyst</title>
+<style>
+  :root {
+    --primary-color: #0ff;
+    --bg-color: #000;
+    --text-color: #fff;
+    --card-bg: #111;
+  }
 
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #000;
-      color: #fff;
-    }
+  * {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+  }
 
-    header {
-      background: #111;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
+  body {
+    font-family: 'Helvetica Neue', sans-serif;
+    background: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+  }
 
-    header h1 {
-      font-size: 1.5rem;
-    }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 3rem;
+    background: rgba(0, 0, 0, 0.9);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 1px solid #222;
+  }
 
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 1rem;
-    }
+  header h1 {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+  }
 
-    nav a {
-      text-decoration: none;
-      color: #fff;
-      transition: color 0.3s ease;
-    }
+  nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+  }
 
-    nav a:hover {
-      color: #0ff;
-    }
+  nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
 
-    .section {
-      padding: 4rem 2rem;
-      opacity: 0;
-      transform: translateY(50px);
-      transition: all 0.6s ease;
-    }
+  nav a:hover {
+    color: var(--primary-color);
+  }
 
-    .section.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  section {
+    padding: 4rem 3rem;
+    max-width: 1000px;
+    margin: auto;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.6s ease;
+  }
 
-    .section h2 {
-      margin-bottom: 1rem;
-      color: #0ff;
-    }
+  section.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
-    .skills-list {
-      list-style: none;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 1rem;
-    }
+  section h2 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    display: inline-block;
+  }
 
-    .skills-list li {
-      background: #111;
-      padding: 0.5rem;
-      border-radius: 4px;
-      text-align: center;
-    }
+  .skills-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
 
-    .project-card {
-      background: #111;
-      padding: 1rem;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+  .skills-list li {
+    background: var(--card-bg);
+    padding: 0.75rem;
+    text-align: center;
+    border-radius: 6px;
+  }
 
-    .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
-    }
+  .project-card {
+    background: var(--card-bg);
+    padding: 1rem;
+    border-radius: 6px;
+    margin-top: 1rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
 
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #111;
-      margin-top: 2rem;
-    }
+  .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 255, 255, 0.2);
+  }
 
-    a {
-      color: #0ff;
-    }
-  </style>
+  footer {
+    text-align: center;
+    padding: 1rem;
+    background: #111;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+  }
+
+  a {
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Animasi fade in up */
+  @keyframes fadeInUp {
+    0% {opacity: 0; transform: translateY(50px);}
+    100% {opacity: 1; transform: translateY(0);}
+  }
+</style>
 </head>
 <body>
-  <header>
-    <h1>Data Analyst</h1>
-    <nav>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <section id="about" class="section">
-    <h2>About Me</h2>
-    <p>Saya seorang Data Analyst dengan pengalaman lebih dari 5 tahun. Saya ahli dalam menganalisis data, visualisasi, dan membantu pengambilan keputusan berbasis data.</p>
-  </section>
-
-  <section id="skills" class="section">
-    <h2>Skills</h2>
-    <ul class="skills-list">
-      <li>SQL & Database</li>
-      <li>Python & Pandas</li>
-      <li>Tableau & Power BI</li>
-      <li>Data Visualization</li>
-      <li>Business Intelligence</li>
+<header>
+  <h1>Data Analyst</h1>
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
-  </section>
+  </nav>
+</header>
 
-  <section id="projects" class="section">
-    <h2>Projects</h2>
-    <div class="project-card">
-      <h3>Sales Dashboard</h3>
-      <p>Membuat dashboard interaktif untuk menganalisis data penjualan tahunan menggunakan Tableau.</p>
-    </div>
-    <div class="project-card">
-      <h3>Customer Segmentation</h3>
-      <p>Menggunakan clustering untuk segmentasi pelanggan dan meningkatkan retensi.</p>
-    </div>
-  </section>
+<section id="about" class="section">
+  <h2>About Me</h2>
+  <p>Saya seorang Data Analyst dengan pengalaman lebih dari 5 tahun. Keahlian saya meliputi analisis data, visualisasi, dan membantu pengambilan keputusan berbasis data untuk perusahaan.</p>
+</section>
 
-  <section id="contact" class="section">
-    <h2>Contact</h2>
-    <p>Email: data.analyst@example.com</p>
-    <p>LinkedIn: <a href="#" target="_blank">Profil LinkedIn</a></p>
-  </section>
+<section id="skills" class="section">
+  <h2>Skills</h2>
+  <ul class="skills-list">
+    <li>SQL & Database</li>
+    <li>Python & Pandas</li>
+    <li>Tableau & Power BI</li>
+    <li>Data Visualization</li>
+    <li>Business Intelligence</li>
+  </ul>
+</section>
 
-  <footer>
-    <p>&copy; 2025 Data Analyst Portfolio</p>
-  </footer>
-
-  <script>
-    // Smooth scroll effect for nav links
-    document.querySelectorAll('nav a').forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        const targetId = link.getAttribute('href').substring(1);
-        const target = document.getElementById(targetId);
-        target.scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
-    });
-
-    // Scroll reveal animation
-    const sections = document.querySelectorAll('.section');
-    const revealSection = () => {
-      const triggerBottom = window.innerHeight * 0.85;
-      sections.forEach(section => {
-        const sectionTop = section.getBoundingClientRect().top;
-        if (sectionTop < triggerBottom) {
-          section.classList.add('show');
-        } else {
-          section.classList.remove('show');
-        }
-      });
-    };
-    window.addEventListener('scroll', revealSection);
-    // Initial reveal
-    revealSection();
-  </script>
-</body>
-</html>
+<section id="projects" class="section">
+  <h2>Projects</h2>
+  <div class="project-card">
+    <h3>Sales Dashboard</h3>
+    <p>Dashboard interaktif untuk analisis data penjualan tahunan menggunakan Tableau
