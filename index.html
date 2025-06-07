@@ -229,19 +229,80 @@
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
   }
+
+  @media (max-width: 768px) {
+  .skills-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .skill-column {
+    width: 100%;
+    max-width: 90%;
+  }
+
+  .skills-title {
+    font-size: 28px;
+  }
+
+  .skills-subtitle {
+    font-size: 14px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    background-color: rgba(0,0,0,0.85);
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 200px;
+    padding: 1rem;
+    display: none;
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+
+  nav .menu-toggle {
+    display: block;
+    cursor: pointer;
+    color: #fff;
+    font-size: 1.5rem;
+  }
+
+  nav {
+    position: relative;
+  }
+}
+
+/* Optional: toggle button for mobile nav */
+.menu-toggle {
+  display: none;
+}
+  
 </style>
 </head>
 <body>
 
 <header>
   <nav>
-    <div class="logo">MyPortofolio</div>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+  <div class="logo">MyPortofolio</div>
+  <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
   <div class="hero">
     <h1>Hi, I'm <span class="highlight">[Your Name]</span></h1>
     <p>Data Analyst - Uncovering Insights from Data</p>
@@ -379,6 +440,11 @@
     alert('Thank you for reaching out!');
     this.reset();
   });
+
+  document.querySelector('.menu-toggle').addEventListener('click', function () {
+  document.querySelector('nav ul').classList.toggle('active');
+});
 </script>
+  
 </body>
 </html>
