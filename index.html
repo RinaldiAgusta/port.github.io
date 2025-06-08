@@ -19,6 +19,13 @@
       box-sizing: border-box;
     }
 
+    .card-style {
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 40px;
+}
+    
     header {
       background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://source.unsplash.com/1600x900/?data') center/cover no-repeat;
       color: #fff;
@@ -317,83 +324,69 @@
   </div>
 </section>
 
-<section id="skills" class="skills-section">
-  <h2 class="skills-title">Keahlian Teknis</h2>
-  <p class="skills-subtitle">Beberapa keterampilan yang saya kuasai dalam bidang data</p>
+<section id="skills" class="py-5">
+  <div class="container">
+    <div class="card-style">
+      <h2 class="text-center fw-bold mb-3">Keahlian Teknis</h2>
+      <p class="text-center mb-5 text-muted">Beberapa keterampilan yang saya kuasai dalam bidang data</p>
 
-  <div class="skills-grid">
-    <!-- Kolom 1: Programming -->
-    <div class="skill-column">
-      <h3><i class="fas fa-code"></i> Bahasa & Teknologi</h3>
-      <p class="desc">Bahasa pemrograman dan teknologi yang saya gunakan</p>
+      <div class="row">
+        <!-- Kolom Bahasa & Teknologi -->
+        <div class="col-md-6 mb-4">
+          <h5><i class="bi bi-code-slash me-2"></i> Bahasa & Teknologi</h5>
+          <p class="text-muted">Bahasa pemrograman dan teknologi yang saya gunakan</p>
 
-      <div class="skill-bar">
-        <div class="skill-label">
-          <span>Python</span><span>90%</span>
+          <p class="mb-1">Python <span class="float-end">90%</span></p>
+          <div class="progress mb-3">
+            <div class="progress-bar bg-primary" style="width: 90%"></div>
+          </div>
+
+          <p class="mb-1">SQL <span class="float-end">85%</span></p>
+          <div class="progress mb-3">
+            <div class="progress-bar bg-primary" style="width: 85%"></div>
+          </div>
+
+          <p class="mb-1">Machine Learning <span class="float-end">80%</span></p>
+          <div class="progress mb-3">
+            <div class="progress-bar bg-primary" style="width: 80%"></div>
+          </div>
+
+          <p class="mb-1">Deep Learning <span class="float-end">75%</span></p>
+          <div class="progress mb-3">
+            <div class="progress-bar bg-primary" style="width: 75%"></div>
+          </div>
         </div>
-        <div class="bar"><div class="fill" style="width: 90%;"></div></div>
-      </div>
 
-      <div class="skill-bar">
-        <div class="skill-label">
-          <span>SQL</span><span>85%</span>
+        <!-- Kolom Alat & Platform -->
+        <div class="col-md-6 mb-4">
+          <h5><i class="bi bi-tools me-2"></i> Alat & Platform</h5>
+          <p class="text-muted">Tools yang saya gunakan dalam pekerjaan sehari-hari</p>
+
+          <p class="mb-1">Looker Studio <span class="float-end">90%</span></p>
+          <div class="progress mb-3">
+            <div class="progress-bar bg-primary" style="width: 90%"></div>
+          </div>
+
+          <p class="mb-1">Tableau <span class="float-end">85%</span></p>
+          <div class="progress mb-3">
+            <div class="progress-bar bg-primary" style="width: 85%"></div>
+          </div>
+
+          <p class="mb-1">BigQuery <span class="float-end">80%</span></p>
+          <div class="progress mb-3">
+            <div class="progress-bar bg-primary" style="width: 80%"></div>
+          </div>
+
+          <p class="mb-1">VSCode <span class="float-end">85%</span></p>
+          <div class="progress mb-3">
+            <div class="progress-bar bg-primary" style="width: 85%"></div>
+          </div>
+
+          <p class="mb-1">GitHub <span class="float-end">75%</span></p>
+          <div class="progress mb-3">
+            <div class="progress-bar bg-primary" style="width: 75%"></div>
+          </div>
         </div>
-        <div class="bar"><div class="fill" style="width: 85%;"></div></div>
-      </div>
-
-      <div class="skill-bar">
-        <div class="skill-label">
-          <span>Machine Learning</span><span>80%</span>
-        </div>
-        <div class="bar"><div class="fill" style="width: 80%;"></div></div>
-      </div>
-
-      <div class="skill-bar">
-        <div class="skill-label">
-          <span>Deep Learning</span><span>75%</span>
-        </div>
-        <div class="bar"><div class="fill" style="width: 75%;"></div></div>
-      </div>
-    </div>
-
-    <!-- Kolom 2: Tools -->
-    <div class="skill-column">
-      <h3><i class="fas fa-tools"></i> Alat & Platform</h3>
-      <p class="desc">Tools yang saya gunakan dalam pekerjaan sehari-hari</p>
-
-      <div class="skill-bar">
-        <div class="skill-label">
-          <span>Looker Studio</span><span>90%</span>
-        </div>
-        <div class="bar"><div class="fill" style="width: 90%;"></div></div>
-      </div>
-
-      <div class="skill-bar">
-        <div class="skill-label">
-          <span>Tableau</span><span>85%</span>
-        </div>
-        <div class="bar"><div class="fill" style="width: 85%;"></div></div>
-      </div>
-
-      <div class="skill-bar">
-        <div class="skill-label">
-          <span>BigQuery</span><span>80%</span>
-        </div>
-        <div class="bar"><div class="fill" style="width: 80%;"></div></div>
-      </div>
-
-      <div class="skill-bar">
-        <div class="skill-label">
-          <span>VSCode</span><span>85%</span>
-        </div>
-        <div class="bar"><div class="fill" style="width: 85%;"></div></div>
-      </div>
-
-      <div class="skill-bar">
-        <div class="skill-label">
-          <span>GitHub</span><span>75%</span>
-        </div>
-        <div class="bar"><div class="fill" style="width: 75%;"></div></div>
       </div>
     </div>
   </div>
