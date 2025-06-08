@@ -4,8 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portofolio Data Analyst</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     html, body {
       margin: 0;
@@ -63,6 +62,42 @@
 
     nav .menu a:hover {
       color: #00bcd4;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      color: white;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      nav .menu {
+        display: none;
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        padding: 1rem;
+        border-radius: 0 0 8px 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        z-index: 999;
+      }
+
+      nav .menu.active {
+        display: flex;
+      }
+
+      nav .menu a {
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+      }
     }
 
     .hero {
@@ -233,28 +268,6 @@
     }
 
     @media (max-width: 768px) {
-      nav .menu {
-        display: none;
-        flex-direction: column;
-        background-color: rgba(0,0,0,0.85);
-        position: absolute;
-        top: 60px;
-        right: 0;
-        width: 200px;
-        padding: 1rem;
-      }
-
-      nav .menu.active {
-        display: flex;
-      }
-
-      .menu-toggle {
-        display: block;
-        color: #fff;
-        font-size: 1.5rem;
-        cursor: pointer;
-      }
-
       .skills-grid {
         flex-direction: column;
         align-items: center;
@@ -271,14 +284,16 @@
 
   <header>
     <nav>
-  <div class="logo">MyPortofolio</div>
-  <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
-  <div class="menu" id="menu">
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </div>
-</nav>
+      <div class="logo">MyPortofolio</div>
+      <div class="menu-toggle" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </div>
+      <div class="menu" id="menu">
+        <a href="#about" onclick="closeMenu()">About</a>
+        <a href="#projects" onclick="closeMenu()">Projects</a>
+        <a href="#contact" onclick="closeMenu()">Contact</a>
+      </div>
+    </nav>
 
     <div class="hero">
       <h1>Hi, I'm <span class="highlight">[Your Name]</span></h1>
@@ -307,7 +322,6 @@
       <div class="skill-column">
         <h3><i class="fas fa-code"></i> Programming</h3>
         <p class="desc">Programming that I have picked up so far</p>
-
         <div class="skill-bar"><div class="skill-label"><span>Python</span><span>90%</span></div><div class="bar"><div class="fill" style="width: 90%;"></div></div></div>
         <div class="skill-bar"><div class="skill-label"><span>SQL</span><span>85%</span></div><div class="bar"><div class="fill" style="width: 85%;"></div></div></div>
         <div class="skill-bar"><div class="skill-label"><span>Machine Learning</span><span>80%</span></div><div class="bar"><div class="fill" style="width: 80%;"></div></div></div>
@@ -317,7 +331,6 @@
       <div class="skill-column">
         <h3><i class="fas fa-tools"></i> Tools</h3>
         <p class="desc">Tools that I know and use on a daily basis</p>
-
         <div class="skill-bar"><div class="skill-label"><span>Looker Studio</span><span>90%</span></div><div class="bar"><div class="fill" style="width: 90%;"></div></div></div>
         <div class="skill-bar"><div class="skill-label"><span>Tableau</span><span>85%</span></div><div class="bar"><div class="fill" style="width: 85%;"></div></div></div>
         <div class="skill-bar"><div class="skill-label"><span>Github</span><span>75%</span></div><div class="bar"><div class="fill" style="width: 75%;"></div></div></div>
@@ -361,12 +374,26 @@
   <footer>
     <p>&copy; 2025 [Your Name]. All rights reserved.</p>
   </footer>
-<script>
-  function toggleMenu() {
-    const menu = document.getElementById("menu");
-    menu.classList.toggle("active");
-  }
-</script>
-  
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("menu");
+      menu.classList.toggle("active");
+    }
+
+    function closeMenu() {
+      const menu = document.getElementById("menu");
+      menu.classList.remove("active");
+    }
+
+    document.addEventListener("click", function(event) {
+      const menu = document.getElementById("menu");
+      const toggle = document.querySelector(".menu-toggle");
+      if (!menu.contains(event.target) && !toggle.contains(event.target)) {
+        menu.classList.remove("active");
+      }
+    });
+  </script>
+
 </body>
 </html>
