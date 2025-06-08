@@ -271,13 +271,14 @@
 
   <header>
     <nav>
-      <div class="logo">MyPortofolio</div>
-      <div class="menu">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </nav>
+  <div class="logo">MyPortofolio</div>
+  <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+  <div class="menu" id="menu">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
 
     <div class="hero">
       <h1>Hi, I'm <span class="highlight">[Your Name]</span></h1>
@@ -360,6 +361,12 @@
   <footer>
     <p>&copy; 2025 [Your Name]. All rights reserved.</p>
   </footer>
-
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById("menu");
+    menu.classList.toggle("active");
+  }
+</script>
+  
 </body>
 </html>
